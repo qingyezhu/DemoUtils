@@ -4,7 +4,7 @@ package com.wangzhu.enumutil;
  * 接口
  * 
  * @author wangzhu
- * @date 2014-9-15下午5:19:54
+ * @date 2014-9-15下午5:26:20
  * 
  */
 public interface GenderDesc {
