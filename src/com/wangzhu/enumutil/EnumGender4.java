@@ -4,7 +4,7 @@ package com.wangzhu.enumutil;
  * 实现接口的枚举类
  * 
  * @author wangzhu
- * @date 2014-9-15下午5:26:20
+ * @date 2014-9-15下午5:34:52
  * 
  */
 public enum EnumGender4 implements GenderDesc {

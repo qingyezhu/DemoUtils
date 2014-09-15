@@ -3,7 +3,7 @@ package com.wangzhu.enumutil;
 /**
  * 
  * @author wangzhu
- * @date 2014-9-15ÏÂÎç5:26:20
+ * @date 2014-9-15ÏÂÎç5:34:31
  * 
  */
 public enum EnumGender2 {

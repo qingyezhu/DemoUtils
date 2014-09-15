@@ -4,7 +4,7 @@ package com.wangzhu.enumutil;
  * 枚举测试类
  * 
  * @author wangzhu
- * @date 2014-9-15下午5:26:20
+ * @date 2014-9-15下午5:35:28
  * 
  */
 public class GenderTest {

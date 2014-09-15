@@ -5,7 +5,7 @@ package com.wangzhu.enumutil;
  * 这个抽象方法由不同的枚举值提供不同的实现
  * 
  * @author wangzhu
- * @date 2014-9-15下午5:26:20
+ * @date 2014-9-15下午5:35:04
  * 
  */
 public enum EnumOption {
