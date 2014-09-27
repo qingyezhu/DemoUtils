@@ -1,0 +1,41 @@
+文件流
+
+根据流的流向划分：输入流和输出流
+输入流：只能从中读取数据，而不能想起写入数据。
+输出流：只能向其写入数据，而不能从中读取数据。
+划分输入/输出流时是从程序运行所在内存的角度来考虑的。
+
+根据流所操作的数据单元不同：字节流和字符流
+字节流：操作的数据单元是8位的字节
+字符流：操作的数据单元是16为的字节
+
+输入流：
+  字节流：
+  InputStream(抽象基类)
+    FileInputStream(访问文件)
+     缓冲流 
+     BufferedInputStream
+    对象流
+     ObjectInputStream
+  字符流
+  Reader(抽象基类)
+    FileReader(访问文件)
+     缓冲流 
+    BufferedReader
+    转换流
+   InputStreamReader
+输出流：
+  字节流：
+  OutputStream(抽象基类)
+   FileOutputStream(访问文件)
+     缓冲流 
+   BufferedOutputStream    
+    对象流
+   ObjectOutputStream
+  字符流：
+  Writer(抽象基类)
+    FileWriter(访问文件)
+    缓冲流
+    BufferedWriter    
+    转换流
+   InputStreamWriter
