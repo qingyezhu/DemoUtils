@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcConfig>
+	<config name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	<config name="url" value="jdbc:oracle:thin:@localhost:orcl"/>
+	<config name="username" value="root"/>
+	<config name="password" value="root"/>
+</JdbcConfig>

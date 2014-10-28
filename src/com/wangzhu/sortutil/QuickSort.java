@@ -1,6 +1,7 @@
 package com.wangzhu.sortutil;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * 快速排序：<br/>
@@ -38,7 +39,35 @@ public class QuickSort {
 	public static void sort(int[] arr) {
 		if ((null != arr) && (arr.length > 0)) {
 			// 查看数组属否为空或数组长度为0
-			QuickSort.quickSort(arr, 0, arr.length - 1);
+			QuickSort.quickSortByStatck(arr, 0, arr.length - 1);
+		}
+	}
+
+	/**
+	 * 非递归的快排：利用栈
+	 * 
+	 * @param arr
+	 * @param low
+	 * @param high
+	 */
+	private static void quickSortByStatck(int[] arr, int low, int high) {
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(high);// 先存右边界
+		stack.push(low);// 再存左边界
+		while (!stack.isEmpty()) {
+			int left = stack.pop();// 先弹出左边界
+			int right = stack.pop();// 再弹出右边界
+			if (left < right) {
+				int mid = QuickSort.getMiddle(arr, left, right);
+				if (left < mid) {
+					stack.push(mid - 1);
+					stack.push(left);
+				}
+				if (right > mid) {
+					stack.push(right);
+					stack.push(mid + 1);
+				}
+			}
 		}
 	}
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcConfig>
+	<config>
+		<name>driverClassName</name>
+		<value>oracle.jdbc.driver.OracleDriver</value>
+	</config>
+	<config>
+		<name>url</name>
+		<value>jdbc:oracle:thin:@localhost:orcl</value>
+	</config>
+	<config>
+		<name>username</name>
+		<value>root</value>
+	</config>
+	<config>
+		<name>password</name>
+		<value>root</value>
+	</config>
+</JdbcConfig>

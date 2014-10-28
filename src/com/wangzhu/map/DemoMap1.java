@@ -5,12 +5,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.Map.Entry;
 
 public class DemoMap1 {
 
@@ -18,20 +19,20 @@ public class DemoMap1 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Map<String, String> map = getMapData();
+		Map<String, String> map = DemoMap1.getMapData();
 		System.out.println(map);
 
-		convertMapKeyToList(map);
+		DemoMap1.convertMapKeyToList(map);
 
-		converMapValueToList(map);
+		DemoMap1.converMapValueToList(map);
 
-		converMapToList(map);
+		DemoMap1.converMapToList(map);
 
-		showMap(map);
+		DemoMap1.showMap(map);
 
-		sortMap(map);
+		DemoMap1.sortMap(map);
 
-		otherMap(map);
+		DemoMap1.otherMap(map);
 	}
 
 	/**
@@ -47,7 +48,8 @@ public class DemoMap1 {
 	private static Map<String, String> getMapData() {
 		Map<String, String> map = new HashMap<String, String>();
 		for (int i = 0; i < 5; i++) {
-			map.put("key" + random.nextInt(100), "value" + random.nextInt(10));
+			map.put("key" + DemoMap1.random.nextInt(100), "value"
+					+ DemoMap1.random.nextInt(10));
 		}
 		return map;
 	}
@@ -174,7 +176,8 @@ public class DemoMap1 {
 
 		Map<String, String> unmodifyMap = Collections.unmodifiableMap(map);
 		System.out.println("unmodifyMap====" + unmodifyMap);
-		map.put("key" + random.nextInt(1000), "value" + random.nextInt(100));
+		map.put("key" + DemoMap1.random.nextInt(1000), "value"
+				+ DemoMap1.random.nextInt(100));
 		System.out.println("map====" + map);
 		System.out.println("unmodifyMap====" + unmodifyMap);
 
@@ -183,6 +186,20 @@ public class DemoMap1 {
 		// "value" + random.nextInt(100));
 
 		System.out.println("unmodifyMap====" + unmodifyMap);
+		String[] data = new String[] { "张三", "李四", "王五", "Lili", "John", "Hame" };
+		/**
+		 * 记录插入的顺序
+		 */
+		Map<String, String> linkedMap = new LinkedHashMap<String, String>();
+		Map<String, String> oMap = new HashMap<String, String>();
+		for (String element : data) {
+			linkedMap.put(element, element);
+			oMap.put(element, element);
+		}
+		System.out.println("HashMap：");
+		DemoMap1.showMap(oMap);
+		System.out.println("LinkedHashMap：");
+		DemoMap1.showMap(linkedMap);
 	}
 
 }
