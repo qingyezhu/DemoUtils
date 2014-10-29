@@ -6,46 +6,106 @@ import java.util.List;
 public class SqlHelper {
 
 	/**
-	 * 获取Sql语句中类似In语句：由And与Or语句组成<br/>
-	 * 例如：<br/>
-	 * and (t.userId = 'id0' or t.userId = 'id1' or t.userId = 'id2')
+	 * 获取Sql语句中类似In语句：如<br/>
+	 * AND (ZB_ID = '00001' OR ZB_ID = '00002' OR ZB_ID = '00003')
 	 * 
-	 * @param itemArr
-	 *            属性值字符串
-	 * @param itemStr
-	 *            属性名称
-	 * @return
+	 * @param arr
+	 *            属性值集合
+	 * @param property
+	 *            属性字符串
+	 * @param accum
+	 *            返回的Sql字符串
 	 */
-	public static StringBuffer getInSql(String[] itemArr, String itemStr) {
-		return SqlHelper.getInSql(Arrays.asList(itemArr), itemStr);
+	public static void getInOrStr(String[] arr, String property,
+			StringBuffer accum) {
+		if ((arr == null) || (arr.length == 0)) {
+			return;
+		}
+		if ((property == null) || (property.length() == 0)) {
+			return;
+		}
+		SqlHelper.getInOrStr(Arrays.asList(arr), property, accum);
 	}
 
 	/**
-	 * 获取Sql语句中类似In语句：由And与Or语句组成<br/>
-	 * 例如：<br/>
-	 * and (t.userId = 'id0' or t.userId = 'id1' or t.userId = 'id2')
+	 * 获取Sql语句中类似In语句：如<br/>
+	 * AND (ZB_ID = '00001' OR ZB_ID = '00002' OR ZB_ID = '00003')
 	 * 
-	 * @param itemList
-	 *            属性值列表
-	 * @param itemStr
-	 *            属性名称
-	 * @return
+	 * @param list
+	 *            属性列表
+	 * @param property
+	 *            属性字符串
+	 * @param accum
+	 *            返回的Sql字符串
 	 */
-	public static StringBuffer getInSql(List<String> itemList, String itemStr) {
-		StringBuffer sqlSb = new StringBuffer();
-		for (int i = 0, size = itemList.size(); i < size; i++) {
-			if (i == 0) {
-				sqlSb.append(" and (");
-			} else {
-				sqlSb.append(" or ");
-			}
-			sqlSb.append(itemStr).append(" = '").append(itemList.get(i))
-					.append("'");
-			if (i == (size - 1)) {
-				sqlSb.append(")");
-			}
+	public static void getInOrStr(List<String> list, String property,
+			StringBuffer accum) {
+		if ((list == null) || (list.size() == 0)) {
+			return;
 		}
-		return sqlSb;
+		if ((property == null) || (property.length() == 0)) {
+			return;
+		}
+		accum.append(" AND (");
+		for (int i = 0, size = list.size(); i < size; i++) {
+			if (i > 0) {
+				accum.append(" OR ");
+			}
+			accum.append(property).append(" = '").append(list.get(i))
+					.append("'");
+		}
+		accum.append(")");
+	}
+
+	/**
+	 * 获取Sql语句中In语句，如<br/>
+	 * AND ZB_ID IN ('00001','00002','00003')
+	 * 
+	 * @param arr
+	 *            属性值集合
+	 * @param property
+	 *            属性字符串
+	 * @param accum
+	 *            返回的Sql字符串
+	 */
+	public static void getInStr(String[] arr, String property,
+			StringBuffer accum) {
+		if ((null == arr) || (arr.length == 0)) {
+			return;
+		}
+		if ((null == property) || (property.length() == 0)) {
+			return;
+		}
+		SqlHelper.getInStr(Arrays.asList(arr), property, accum);
+	}
+
+	/**
+	 * 获取Sql语句中In语句，如<br/>
+	 * AND ZB_ID IN ('00001','00002','00003')
+	 * 
+	 * @param list
+	 *            属性列表
+	 * @param property
+	 *            属性字符串
+	 * @param accum
+	 *            返回的Sql字符串
+	 */
+	private static void getInStr(List<String> list, String property,
+			StringBuffer accum) {
+		if ((null == list) || (list.size() == 0)) {
+			return;
+		}
+		if ((null == property) || (property.length() == 0)) {
+			return;
+		}
+		accum.append(" AND ").append(property).append(" IN (");
+		for (int i = 0, size = list.size(); i < size; i++) {
+			if (i > 0) {
+				accum.append(",");
+			}
+			accum.append("'").append(list.get(i)).append("'");
+		}
+		accum.append(")");
 	}
 
 	/**
@@ -54,8 +114,15 @@ public class SqlHelper {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("getInSql:\n"
-				+ SqlHelper.getInSql(new String[] { "id0", "id1", "id2" },
-						"t.userId"));
+		StringBuffer accum = new StringBuffer();
+		SqlHelper.getInOrStr(new String[] { "00001", "00002", "00003" },
+				"zb_id", accum);
+		System.out.println(accum);
+		accum.setLength(0);
+
+		SqlHelper.getInStr(new String[] { "00001", "00002", "00003" }, "zb_id",
+				accum);
+		System.out.println(accum);
+
 	}
 }
