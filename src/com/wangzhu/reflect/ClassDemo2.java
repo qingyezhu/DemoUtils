@@ -10,9 +10,9 @@ public class ClassDemo2 {
 		Class c1 = int.class;
 		Class c2 = Integer.class;
 		Class c3 = void.class;
-		System.out.println(c1.getName());
-		System.out.println(c2.getName());
-		System.out.println(c3.getName());
+		System.out.println(c1.getName() + "," + c1.getSimpleName());
+		System.out.println(c2.getName() + "," + c2.getSimpleName());
+		System.out.println(c3.getName() + "," + c3.getSimpleName());
 
 		String str = "";
 		ClassUtil.printMethod(str);
