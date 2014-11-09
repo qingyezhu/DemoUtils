@@ -12,6 +12,9 @@ public class OtherDemo {
 		OtherDemo.copeOfArray();
 
 		OtherDemo.forOfArray();
+
+		Cat cat = new Cat();
+		cat.say();
 	}
 
 	private static final int MAX = 2500000;
@@ -68,4 +71,17 @@ public class OtherDemo {
 	}
 	private static int num;
 	private static String str = null;
+}
+
+class Animal {
+	final void show() {
+		System.out.println("Animal show");
+	}
+}
+
+class Cat extends Animal {
+	void say() {
+		this.show();
+		System.out.println("cat say");
+	}
 }

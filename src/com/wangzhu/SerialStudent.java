@@ -16,7 +16,10 @@ public class SerialStudent implements Serializable {
 	private static final long serialVersionUID = -463184211929252910L;
 	private int id;
 	private String name;
-	private int age;
+	/**
+	 * 如果用transient声明一个实例变量，当对象存储时，它的值不需要维持。
+	 */
+	private transient int age;
 
 	public SerialStudent(int id, String name, int age) {
 		super();
