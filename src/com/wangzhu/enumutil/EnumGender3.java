@@ -9,6 +9,9 @@ package com.wangzhu.enumutil;
  */
 public enum EnumGender3 implements GenderDesc {
 
+	/**
+	 * 男
+	 */
 	MALE("男") {
 
 		@Override
@@ -16,6 +19,9 @@ public enum EnumGender3 implements GenderDesc {
 			System.out.println("男子标记");
 		}
 	},
+	/**
+	 * 女
+	 */
 	FEMALE("女") {
 
 		@Override
@@ -31,6 +37,6 @@ public enum EnumGender3 implements GenderDesc {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 }

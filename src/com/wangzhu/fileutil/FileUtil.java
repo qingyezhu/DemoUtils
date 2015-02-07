@@ -13,6 +13,9 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import com.wangzhu.UuidGenerator;
+import com.wangzhu.dateutil.DateUtil;
+
 /**
  * 去除文件中重复的行
  * 
@@ -21,6 +24,15 @@ import org.apache.log4j.Logger;
  */
 public class FileUtil {
 	private static final Logger LOGGER = Logger.getLogger(FileUtil.class);
+
+	/**
+	 * 获取文件名
+	 * 
+	 * @return
+	 */
+	public static String getUuidFileName() {
+		return UuidGenerator.getUUid() + "_" + DateUtil.getYMDHMSTS();
+	}
 
 	/**
 	 * @param args

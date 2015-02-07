@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * HashSet底层采用HashMap来保存所有元素<br/>
  * 当hashcode一样时，才调用equals方法<br/>
  * 若equals返回true，则hashcode相等<br/>
  * 若equals返回false，则hashcode有可能相等<br/>
@@ -19,33 +20,45 @@ public class DemoSet {
 	 */
 	public static void main(String[] args) {
 		Set<Student> set = new HashSet<Student>();
-		Student stu = new Student(12, "LiLei");
+		Student stu = new Student(1, 12, "LiLei");
 		set.add(stu);
 
-		stu = new Student(13, "LiLi");
+		stu = new Student(2, 13, "LiLi");
 		set.add(stu);
-		stu = new Student(12, "LiLei");
-		set.add(stu);
-
-		stu = new Student(14, "LiLi");
+		stu = new Student(1, 12, "LiLei");
 		set.add(stu);
 
-		System.out.println(set);
+		stu = new Student(4, 14, "LiLi");
+		set.add(stu);
+		System.out.println("change before: " + set);
+		stu.setAge(21);
+		System.out.println("change end: " + set);
 	}
 
 }
 
 class Student {
+	private int id;
 	private int age;
 	private String name;
 
-	public Student(int age, String name) {
+	public Student(int id, int age, String name) {
+		super();
+		this.id = id;
 		this.age = age;
 		this.name = name;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getAge() {
-		return this.age;
+		return age;
 	}
 
 	public void setAge(int age) {
@@ -53,7 +66,7 @@ class Student {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -61,20 +74,24 @@ class Student {
 	}
 
 	@Override
+	public String toString() {
+		return "{id=" + id + ", age=" + age + ", name=" + name + "}";
+	}
+
+	@Override
 	public int hashCode() {
-		System.out.println("调用hashCode方法");
+		System.out.println("调用hashCode方法：" + this);
 		final int prime = 31;
 		int result = 1;
-		result = (prime * result) + this.age;
-		result = (prime * result)
-				+ ((this.name == null) ? 0 : this.name.hashCode());
-		System.out.println(this.name + " : " + result);
+		result = (prime * result) + age;
+		result = (prime * result) + id;
+		result = (prime * result) + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		System.out.println("调用equals方法");
+		System.out.println("调用equals方法：" + this);
 		if (this == obj) {
 			return true;
 		}
@@ -85,22 +102,20 @@ class Student {
 			return false;
 		}
 		Student other = (Student) obj;
-		if (this.age != other.age) {
+		if (age != other.age) {
 			return false;
 		}
-		if (this.name == null) {
+		if (id != other.id) {
+			return false;
+		}
+		if (name == null) {
 			if (other.name != null) {
 				return false;
 			}
-		} else if (!this.name.equals(other.name)) {
+		} else if (!name.equals(other.name)) {
 			return false;
 		}
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "{age=" + this.age + ", name=" + this.name + "}";
 	}
 
 }

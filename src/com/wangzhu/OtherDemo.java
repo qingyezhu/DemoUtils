@@ -1,20 +1,32 @@
 package com.wangzhu;
 
+import java.io.UnsupportedEncodingException;
+
 public class OtherDemo {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("num=" + OtherDemo.num);
-		System.out.println("str=" + OtherDemo.str);
+		String str = "ºº×Ö";
+		try {
+			System.out.println(new String(str.getBytes()));
+			System.out.println(new String(str.getBytes("utf-8")));
+			System.out.println(new String(str.getBytes("utf-8"), "utf-8"));
+			System.out.println(new String(str.getBytes("gbk")));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 
-		OtherDemo.copeOfArray();
-
-		OtherDemo.forOfArray();
-
-		Cat cat = new Cat();
-		cat.say();
+		// System.out.println("num=" + OtherDemo.num);
+		// System.out.println("str=" + OtherDemo.str);
+		//
+		// OtherDemo.copeOfArray();
+		//
+		// OtherDemo.forOfArray();
+		//
+		// Cat cat = new Cat();
+		// cat.say();
 	}
 
 	private static final int MAX = 2500000;
