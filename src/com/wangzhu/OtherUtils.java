@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 public final class OtherUtils {
     private static Logger log = Logger.getLogger(OtherUtils.class);
-    private static int mod = 1048576;
+    private static int mod = 1048576 / 1024;
 
     /**
      * 检查内存使用情况
@@ -16,6 +16,7 @@ public final class OtherUtils {
 		+ "MB");
 	log.info("Free Memory: " + (Runtime.getRuntime().freeMemory() / mod)
 		+ "MB");
+	log.info("=======================");
     }
 
 }

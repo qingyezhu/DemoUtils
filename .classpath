@@ -10,6 +10,8 @@
 	<classpathentry kind="lib" path="libs/poi-ooxml-schemas-3.8-20120326.jar"/>
 	<classpathentry kind="lib" path="libs/poi-scratchpad-3.8-20120326.jar" sourcepath="H:/programs/Repositories/Maven/org/apache/poi/poi-scratchpad/3.8/poi-scratchpad-3.8-sources.jar"/>
 	<classpathentry kind="lib" path="libs/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="libs/commons-beanutils-1.9.2.jar" sourcepath="H:/programs/Repositories/Maven/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
