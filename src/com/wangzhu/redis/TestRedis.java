@@ -17,7 +17,7 @@ public class TestRedis {
 
     @Before
     public void init() {
-	pool = new JedisPool(new JedisPoolConfig(), "localhost");
+	pool = new JedisPool(new JedisPoolConfig(), "172.30.18.43");
 	jedis = pool.getResource();
     }
 
