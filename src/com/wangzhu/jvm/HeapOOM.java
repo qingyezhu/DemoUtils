@@ -14,7 +14,8 @@ import java.util.List;
 public class HeapOOM {
 
     // 运行时参数：-verbose:gc -Xms10M -Xmx10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
-    // -XX:+HeapDumpOnOutOfMemoryError
+    // -XX:+HeapDumpOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError
+    // -XX:HeapDumpPath=E:\dump
     public static void main(String[] args) {
 	List<OOMObject> list = new ArrayList<HeapOOM.OOMObject>();
 	while (true) {

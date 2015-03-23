@@ -1,5 +1,7 @@
 package com.wangzhu.thread;
 
+import java.util.Arrays;
+
 import com.wangzhu.dateutil.DateUtil;
 
 /**
@@ -70,6 +72,10 @@ class FutureTicker {
     }
 
     public synchronized void processData() {
+	System.out.println(Arrays
+		.asList(Thread.currentThread().getStackTrace())
+		+ "=====methodName: "
+		+ Thread.currentThread().getStackTrace()[1].getMethodName());
 	System.out.println("processData start: " + DateUtil.getYMDHMST());
 	while (!completed) {
 	    try {
