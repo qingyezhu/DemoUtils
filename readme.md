@@ -13,9 +13,9 @@
 13、数据库操作帮助类以及简单的调用存储过程【Oracle-查询】  
 14、String  
 15、Set  
-16、Thread【实现方式、异步调用、join、synchronized、wait、notifyAll，死锁、同步互斥、通信、ThreadLocal】  
+16、Thread【实现方式、异步调用、join、synchronized、wait、notifyAll，死锁、同步互斥、通信、ThreadLocal、消费者与生产者模式】  
 17、POI    
 18、JVM简单实例【Heap溢出、Stack溢出】  
 19、Redis的简单实例  
-20、java.util.concurrent【线程池Executors、Callable、Future、Lock、Condition、ReadWriteLock、ArrayBlockingQueue】  
-  
+20、java.util.concurrent【线程池Executors、Callable、FutureTask、Future、Lock、Condition、ReadWriteLock、ArrayBlockingQueue、CountDownLatch、CyclicBarrier、Semaphore】  
+21、设计模式【单例模式(Singleton)（饿汉式、懒汉式、静态内部类、枚举）、模版方法(template)、策略模式(strategy)】  

@@ -1,5 +1,7 @@
 package com.wangzhu.thread;
 
+import java.net.URL;
+
 /**
  * 同步与互斥
  * 
@@ -12,6 +14,19 @@ public class SynchronizedTest {
     static class Output {
 	public void print(String str) {
 	    synchronized (this) {// 若不加同步与互斥，则会出现数据结果丢失
+
+		String basePath = System.getProperty("user.dir");
+		System.out.println("basePath==" + basePath);
+		basePath = basePath.replaceAll("\\\\", "/");
+		System.out.println("basePath==" + basePath);
+		basePath = basePath.substring(0, basePath.lastIndexOf("/"));
+		System.out.println("basePath==" + basePath);
+		URL url = Thread.currentThread().getContextClassLoader()
+			.getResource("");
+		if (url != null) {
+		    System.out.println("url===" + url.getFile());
+		}
+
 		for (int i = 0, len = str.length(); i < len; i++) {
 		    System.out.print(str.charAt(i));
 		}
