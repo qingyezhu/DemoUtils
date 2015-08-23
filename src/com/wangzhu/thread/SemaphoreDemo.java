@@ -36,7 +36,7 @@ public class SemaphoreDemo {
 		    try {
 			semaphore.acquire();
 			logger.info("Accessing: " + index);
-			Thread.sleep((long) (Math.random() * 1000));
+			Thread.sleep(10000);
 			semaphore.release();
 			// availablePermits指的是当前信号灯库中有多少个可以被使用
 			logger.info("============"
